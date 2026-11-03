@@ -1,0 +1,15 @@
+.container {
+  text-align: center;
+  margint-top: 80px;
+  font-family: sans-serif;
+}
+
+.btn-utama {
+  background-color: #0284c7;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
