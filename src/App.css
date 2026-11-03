@@ -1,15 +1,154 @@
+/* ===== Kartu utama ===== */
 .container {
+  width: 100%;
+  max-width: 420px;
+  padding: 36px 32px;
   text-align: center;
-  margint-top: 80px;
-  font-family: sans-serif;
+  background: var(--card);
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  animation: muncul 0.5s ease;
 }
 
-.btn-utama {
-  background-color: #0284c7;
-  color: white;
-  border: none;
-  padding: 12px 24px;
-  border-radius: 8px;
+.container h1 {
+  font-size: 28px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  margin-bottom: 8px;
+}
+
+.container h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-h);
+  margin: 10px 0 18px;
+}
+
+.container h3 {
+  font-size: 17px;
+  font-weight: 600;
+}
+
+/* Tiap komponen = satu bagian dengan garis pemisah */
+.container > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin: 0 !important; /* menimpa style inline margin: 20px 0 */
+  padding: 24px 0;
+  border-top: 1px solid var(--border);
+}
+
+.container > div:last-child {
+  padding-bottom: 0;
+}
+
+/* ===== Form ===== */
+.container label {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-h);
+}
+
+.container input[type="text"],
+.container input:not([type]),
+.input_text {
+  display: block;
+  width: 100%;
+  padding: 12px 16px;
   font-size: 16px;
+  font-family: inherit;
+  color: var(--text-h);
+  background: #f8fafc;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.container input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+  background: #fff;
+}
+
+.container input::placeholder {
+  color: #94a3b8;
+}
+
+.container p {
+  font-size: 16px;
+  color: var(--text);
+}
+
+.container p em,
+.container p i {
+  color: #94a3b8;
+}
+
+/* ===== Tombol ===== */
+.container button {
+  padding: 11px 26px;
+  font-size: 15px;
+  font-weight: 600;
+  font-family: inherit;
+  border: none;
+  border-radius: 999px;
   cursor: pointer;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+}
+
+.container button:active {
+  transform: scale(0.96);
+}
+
+/* Tombol utama (indigo penuh) */
+.btn_utama,
+.btn-utama {
+  color: #fff;
+  background: var(--accent);
+}
+
+.btn_utama:hover,
+.btn-utama:hover {
+  background: var(--accent-dark);
+  box-shadow: 0 6px 16px rgba(79, 70, 229, 0.3);
+}
+
+/* Teks cadangan bila tombol utama masih kosong */
+.btn_utama:empty::before,
+.btn-utama:empty::before {
+  content: "Tambah +1";
+}
+
+/* Tombol lain, mis. "Suka" (indigo lembut) */
+.container button:not(.btn_utama):not(.btn-utama) {
+  color: var(--accent-dark);
+  background: #eef2ff;
+}
+
+.container button:not(.btn_utama):not(.btn-utama):hover {
+  background: #e0e7ff;
+}
+
+/* Ikon profil */
+.container svg {
+  width: 44px;
+  height: 44px;
+  color: var(--accent);
+}
+
+@keyframes muncul {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }

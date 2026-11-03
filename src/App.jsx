@@ -1,20 +1,15 @@
-import counter from './components/counter';
-import greeting from './components/greetingForm';
+import Counter from './components/counter';
+import GreetingForm from './components/greetingForm';
+import ProfileCard from './components/profilCard';
 import './App.css';
 
 function App() {
-
-  const [hitung, setHitung] = useState(0);
-
-  function handClik() {
-    alert("HALLO tombol berhasil di clik!")
-  }
-
   return (
     <div className="container">
       <h1>Aplikasi Modular saya</h1>
-      <greeting />
-      <counter />
+      <GreetingForm />
+      <Counter />
+      <ProfileCard />
     </div>
   );
 }

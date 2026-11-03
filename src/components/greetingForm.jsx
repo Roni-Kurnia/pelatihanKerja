@@ -1,8 +1,8 @@
 import { useState } from "react";
 
 
-function greetingForm(){
-    const [nama, setnNama] = useState(0);
+function GreetingForm(){
+    const [nama, setnNama] = useState('');
 
     return (
         <div style={{ margin: '20px 0' }}>
@@ -18,4 +18,4 @@ function greetingForm(){
     );
 }
 
-export default counter;
+export default GreetingForm;
