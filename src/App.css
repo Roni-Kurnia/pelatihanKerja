@@ -350,3 +350,33 @@
     grid-template-columns: 1fr;
   }
 }
+
+/* Kontainer Form Tambah Anggota */
+.add-member-form {
+  background: #FFFFFF;
+  border: 1.5px solid #E2E8F0;
+  border-radius: 16px;
+  padding: 28px 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+.form-title { font-size: 18px; font-weight: 700; margin-bottom: 14px; text-align: left; color: #0F172A; }
+.form-row { display: grid; grid-template-columns: repeat(3, 1fr) auto; gap: 14px; align-items: flex-end; }
+.form-group { display: flex; flex-direction: column; gap: 4px; text-align: left; }
+.form-group label { font-size: 13px; font-weight: 600; color: #334155; }
+.form-group input, .form-group select, .form-group textarea {
+  padding: 10px 14px; border: 1.5px solid #CBD5E1; border-radius: 8px;
+  font-size: 14px; font-family: inherit; outline: none;
+}
+
+/* Indikator Validasi Error Zod */
+.input-error { border-color: #EF4444 !important; background: #FEF2F2; }
+.error-text { color: #DC2626; font-size: 12px; font-weight: 600; margin-top: 2px; }
+
+/* Tombol Submit Form */
+.btn-submit {
+  background: #8284C7; color: #FFFFFF; border: none; border-radius: 8px;
+  padding: 11px 28px; font-weight: 700; cursor: pointer; white-space: nowrap;
+}
+.card-bio { font-size: 13px; font-style: italic; color: #64748B; margin: 4px 0 10px 0; }
