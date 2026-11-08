@@ -28,3 +28,5 @@ function NewsCard({ title, image, category, date, link }) {
     </div>
   );
 }
+
+export default NewsCard;
