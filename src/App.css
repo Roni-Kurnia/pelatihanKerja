@@ -389,3 +389,53 @@
 @media (max-width: 560px) {
   .form-row { grid-template-columns: 1fr; }
 }
+
+/* Layout & Header Aplikasi */
+.app-layout { max-width: 1200px; margin: 0 auto; padding: 24px; font-family: system-ui, sans-serif; }
+.main-header { text-align: center; margin-bottom: 24px; }
+.main-content { margin-top: 24px; }
+.tab-bar { display: inline-flex; gap: 8px; background: #e2e8f0; padding: 6px; border-radius: 12px; margin-top: 14px; }
+.tab-btn {
+  padding: 10px 22px; border: none; background: transparent;
+  font-size: 16px; font-weight: 700; color: #64748b;
+  border-radius: 8px; cursor: pointer; transition: all 0.2s;
+}
+.tab-btn.active { background: #ffffff; color: #2563eb; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
+
+/* News Toolbar & Refresh */
+.news-container { width: 100%; }
+.news-toolbar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; }
+.btn-refresh { background: #2563eb; color: #fff; border: none; border-radius: 8px; padding: 10px 18px; font-weight: 700; cursor: pointer; }
+.btn-refresh:disabled { opacity: 0.6; cursor: not-allowed; }
+
+/* Status Box: Spinner & Error */
+.spinner-box { text-align: center; padding: 48px; color: #64748b; }
+.css-spinner {
+  width: 44px; height: 44px; border: 4px solid #e2e8f0;
+  border-top-color: #2563eb; border-radius: 50%;
+  animation: spin 0.9s linear infinite; margin: 0 auto 16px;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+.error-banner { background: #fef2f2; border: 1.5px solid #ef4444; color: #991b1b; padding: 20px; border-radius: 12px; text-align: center; }
+.error-banner button { margin-top: 12px; background: #dc2626; color: #fff; border: none; border-radius: 6px; padding: 8px 16px; cursor: pointer; }
+
+/* News Grid & Kartu Berita */
+.news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+.news-card {
+  background: #fff; border: 1.5px solid #e2e8f0; border-radius: 16px;
+  overflow: hidden; display: flex; flex-direction: column;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.news-card:hover { transform: translateY(-4px); box-shadow: 0 12px 24px rgba(0,0,0,0.06); }
+.news-thumb-wrapper { position: relative; width: 100%; height: 180px; }
+.news-thumb { width: 100%; height: 100%; object-fit: cover; }
+.news-category-badge {
+  position: absolute; bottom: 12px; left: 12px;
+  background: rgba(37, 99, 235, 0.9); color: white;
+  padding: 4px 10px; border-radius: 6px; font-size: 12px;
+  font-weight: 700; text-transform: uppercase;
+}
+.news-body { padding: 20px; display: flex; flex-direction: column; flex: 1; }
+.news-headline { font-size: 17px; font-weight: 700; color: #0f172a; line-height: 1.4; margin-bottom: 12px; }
+.news-meta { margin-top: auto; display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: #94a3b8; }
+.news-link { color: #2563eb; text-decoration: none; font-weight: 700; }
