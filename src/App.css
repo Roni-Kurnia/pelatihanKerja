@@ -362,7 +362,7 @@
 }
 
 .form-title { font-size: 18px; font-weight: 700; margin-bottom: 14px; text-align: left; color: #0F172A; }
-.form-row { display: grid; grid-template-columns: repeat(3, 1fr) auto; gap: 14px; align-items: flex-end; }
+.form-row { display: grid; grid-template-columns: repeat(4, 1fr) auto; gap: 14px; align-items: flex-end; }
 .form-group { display: flex; flex-direction: column; gap: 4px; text-align: left; }
 .form-group label { font-size: 13px; font-weight: 600; color: #334155; }
 .form-group input, .form-group select, .form-group textarea {
@@ -380,3 +380,12 @@
   padding: 11px 28px; font-weight: 700; cursor: pointer; white-space: nowrap;
 }
 .card-bio { font-size: 13px; font-style: italic; color: #64748B; margin: 4px 0 10px 0; }
+/* Form responsif: tumpuk ke bawah di layar kecil */
+@media (max-width: 900px) {
+  .form-row { grid-template-columns: 1fr 1fr; }
+  .btn-submit { grid-column: 1 / -1; }
+}
+
+@media (max-width: 560px) {
+  .form-row { grid-template-columns: 1fr; }
+}

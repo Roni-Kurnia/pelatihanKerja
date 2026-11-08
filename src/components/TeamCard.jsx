@@ -1,7 +1,7 @@
 // Komponen anak: hanya menampilkan data & memanggil callback dari induk.
 // Tidak ada useState di sini — data bersama dikelola oleh TeamDirectory.
 export default function TeamCard({
-  id, name, role, avatar, status, stars = 0,
+  id, name, role, bio, avatar, status, stars = 0,
   onToggleStatus, onAddStar
 }) {
   const isOnline = status === 'Online';
@@ -13,6 +13,7 @@ export default function TeamCard({
       <div className="card-info">
         <h3 className="card-name">{name}</h3>
         <p className="card-role">{role}</p>
+        {bio && <p className="card-bio">"{bio}"</p>}
 
         <div className="card-badges">
           <span className={`badge ${isOnline ? 'badge-online' : 'badge-offline'}`}>

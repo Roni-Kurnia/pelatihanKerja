@@ -5,11 +5,12 @@ import { z } from 'zod';
 const memberSchema = z.object({
   name: z.string().min(3, 'Nama lengkap minimal 3 karakter'),
   email: z.string().email('Format email tidak valid'),
-  role: z.string().min(1, 'Wajib memilih salah satu peran tim')
+  role: z.string().min(1, 'Wajib memilih salah satu peran tim'),
+  bio: z.string().min(10, 'Bio minimal 10 karakter').max(80, 'Bio maksimal 80 karakter')
 });
 
 function AddMemberForm({ onAddMember }) {
-  const [formData, setFormData] = useState({ name: '', email: '', role: '' });
+  const [formData, setFormData] = useState({ name: '', email: '', role: '', bio: '' });
   const [errors, setErrors] = useState({});
 
   const handleChange = (e) => {
@@ -28,7 +29,7 @@ function AddMemberForm({ onAddMember }) {
       return;
     }
     onAddMember(result.data);
-    setFormData({ name: '', email: '', role: '' });
+    setFormData({ name: '', email: '', role: '', bio: '' });
     setErrors({});
   };
 
@@ -55,6 +56,11 @@ function AddMemberForm({ onAddMember }) {
             <option value="UI/UX Designer">UI/UX Designer</option>
           </select>
           {errors.role && <span className="error-text">⚠️ {errors.role}</span>}
+        </div>
+        <div className="form-group">
+          <label>Bio Singkat</label>
+          <input name="bio" placeholder="Contoh: Suka membangun UI yang rapi" value={formData.bio} onChange={handleChange} className={errors.bio ? 'input-error' : ''} />
+          {errors.bio && <span className="error-text">⚠️ {errors.bio}</span>}
         </div>
         <button type="submit" className="btn-submit">➕ Tambah Anggota</button>
       </div>
