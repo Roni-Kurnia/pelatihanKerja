@@ -4,7 +4,7 @@ export default function MemberDetailPage({ members }) {
     const { id } = useParams();
     const member = members.find((m) => m.id === Number(id));
 
-    // Penanganan aman bila data ID tidak ditemukan
+    // Penanganan aman bila ID tidak ditemukan
     if (!member) {
         return (
             <div className="not-found-container">
@@ -16,23 +16,28 @@ export default function MemberDetailPage({ members }) {
     }
 
     const isOnline = member.status === 'Online';
+
+    // Pakai email dari form bila ada; kalau tidak, buat dari nama.
+    // Regex /\s+/g mengganti SEMUA spasi (replace(' ', '.') hanya spasi pertama).
+    const email =
+        member.email ||
+        `${member.name.trim().toLowerCase().replace(/\s+/g, '.')}@perusahaan.com`;
+
     return (
         <div className="profile-detail-container">
             <Link to="/" className="btn-back">&larr; Kembali ke Direktori Tim</Link>
-            
+
             <div className="profile-card">
                 <img src={member.avatar} alt={member.name} className="avatar-large" />
                 <h2>{member.name}</h2>
                 <p className="profile-role">{member.role}</p>
 
-                <div style={{ marginBottom: '14px' }}>
-                    <span className={isOnline ? 'badge-on' : 'badge-off'}>
-                        {isOnline ? '● Online' : '○ Offline'}
-                    </span>
-                </div>
+                <span className={`badge ${isOnline ? 'badge-online' : 'badge-offline'}`}>
+                    {isOnline ? '● Online' : '○ Offline'}
+                </span>
 
-                <p className="profile-email">📧 {member.name.toLowerCase().replace(' ', '.')}@perusahaan.com</p>
-                <p className="profile-bio">"{member.bio}"</p>
+                <p className="profile-email">📧 {email}</p>
+                {member.bio && <p className="profile-bio">"{member.bio}"</p>}
                 <span className="profile-stars">⭐ {member.stars} Bintang Apresiasi</span>
             </div>
         </div>

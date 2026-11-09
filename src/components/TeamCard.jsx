@@ -1,9 +1,9 @@
+import { Link } from 'react-router-dom';
+
 // Komponen anak: hanya menampilkan data & memanggil callback dari induk.
-// Tidak ada useState di sini — data bersama dikelola oleh TeamDirectory.
-export default function TeamCard({
-  id, name, role, bio, avatar, status, stars = 0,
-  onToggleStatus, onAddStar
-}) {
+// Props sesuai pemakaian di TeamPage: member, onToggle, onGiveStar.
+export default function TeamCard({ member, onToggle, onGiveStar }) {
+  const { id, name, role, bio, avatar, status, stars = 0 } = member;
   const isOnline = status === 'Online';
 
   return (
@@ -23,14 +23,18 @@ export default function TeamCard({
         </div>
 
         <div className="card-actions">
-          <button className="btn-star" onClick={() => onAddStar(id)}>
+          <button className="btn-star" onClick={() => onGiveStar(id)}>
             ⭐ Beri Bintang
           </button>
-
-          <button className="btn-status-toggle" onClick={() => onToggleStatus(id)}>
+          <button className="btn-status-toggle" onClick={() => onToggle(id)}>
             Ubah ke {isOnline ? 'Offline' : 'Online'}
           </button>
         </div>
+
+        {/* Tautan ke halaman profil: /member/:id */}
+        <Link to={`/member/${id}`} className="btn-view-profile">
+          Lihat Profil →
+        </Link>
       </div>
     </div>
   );

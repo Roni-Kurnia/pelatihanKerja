@@ -1,43 +1,31 @@
 import { useState } from 'react';
 
-function ProfileCard() {
-  // State untuk menyimpan data input profesi / pekerjaan
-  const [profesi, setProfesi] = useState('');
-
-  // State untuk menyimpan jumlah likes
+function ProfileCard({ name = 'Roni Kurnia' }) {
+    const [profesi, setProfesi] = useState('');
     const [likes, setLikes] = useState(0);
-
-  // Handler untuk menambah jumlah likes saat tombol diklik
-    const handleLike = () => {
-    setLikes(likes + 1);
-    };
-
-    const [isOnLine, setIsOnLine] = useState(true);
+    const [isOnline, setIsOnline] = useState(true);
 
     return (
         <div className="profile-card">
-            {/* Avatar / Ikon Profil */}
-                <div className="profile-avatar">
-                👤
-                </div>
+            {/* Avatar */}
+            <div className="profile-avatar">👤</div>
 
-                <h2 className="profile-title">Kartu Profil</h2>
-            
-            {/* author and status */}
-                <div className='author'>
-                    <h3>Roni Kurnia</h3>
-                    <spans style={{ color: isOnLine ? '#16a34a' : '#64748b'}} >
-                        {isOnLine ? 'sedang aktif' : 'offline'}
-                    </spans>
-                </div>
-                <span>
-                    <button onClick={() => setIsOnLine(!isOnLine)}>
-                        Ganti status
-                    </button>
+            <h2 className="profile-title">Kartu Profil</h2>
+
+            {/* Nama & status */}
+            <div className="author">
+                <h3>{name}</h3>
+                <span className={`badge ${isOnline ? 'badge-online' : 'badge-offline'}`}>
+                    {isOnline ? '● Sedang aktif' : '○ Offline'}
                 </span>
+            </div>
 
-            {/* Form Input Pekerjaan */}
-                <div className="input-group">
+            <button onClick={() => setIsOnline((prev) => !prev)}>
+                Ganti status
+            </button>
+
+            {/* Input pekerjaan */}
+            <div className="input-group">
                 <label htmlFor="profesiInput" className="input-label">
                     Input Pekerjaan
                 </label>
@@ -49,20 +37,20 @@ function ProfileCard() {
                     placeholder="Contoh: Web Developer..."
                     className="profile-input"
                 />
-                </div>
+            </div>
 
-            {/* Hasil Input Pekerjaan */}
-                <div className="result-box">
+            {/* Hasil input */}
+            <div className="result-box">
                 <span className="result-label">Pekerjaan:</span>
                 <span className="result-value">
                     {profesi.trim() ? profesi : <em>Belum diisi</em>}
                 </span>
-                </div>
+            </div>
 
-            {/* Tombol Suka di bawah hasil input pekerjaan */}
-                <button onClick={handleLike} className="like-button">
+            {/* Tombol suka */}
+            <button onClick={() => setLikes((prev) => prev + 1)} className="like-button">
                 <span className="heart-icon">❤️</span> Suka ({likes})
-                </button>
+            </button>
         </div>
     );
 }
