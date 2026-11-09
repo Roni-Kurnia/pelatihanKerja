@@ -439,3 +439,12 @@
 .news-headline { font-size: 17px; font-weight: 700; color: #0f172a; line-height: 1.4; margin-bottom: 12px; }
 .news-meta { margin-top: auto; display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: #94a3b8; }
 .news-link { color: #2563eb; text-decoration: none; font-weight: 700; }
+/* Pemilih sumber berita */
+.source-switch { display: inline-flex; gap: 8px; margin-bottom: 20px; padding: 6px; background: #e2e8f0; border-radius: 12px; }
+.source-btn {
+  padding: 8px 22px; font: inherit; font-weight: 600; color: #64748b;
+  background: transparent; border: none; border-radius: 8px; cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+.source-btn:hover { color: #1e293b; }
+.source-btn.active { background: #ffffff; color: #2563eb; box-shadow: 0 4px 12px rgba(0,0,0,0.06); }
