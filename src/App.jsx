@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import Counter from './components/counter';
 import GreetingForm from './components/greetingForm';
 import ProfileCard from './components/profilCard';
@@ -7,6 +8,8 @@ import NewsFeed from './components/NewsFeed';
 import './App.css';
 
 function App() {
+  const [activeTab, setActiveTab] = useState('team');
+
   return (
     <div className="app-layout">
       <header className="main-header">
